@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #b8285c;
+    outline: 3px #b8285c solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.button .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+}
+
+.button svg path {
+    transition: 400ms;
+}
+
+.button:hover {
+    background-color: #b7b7b7
+}
+
+.button:hover .text {
+    color: #b8285c;
+}
+
+.button:hover svg path {
+    fill: #b8285c;
+}
+
+
+body{
+    height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.timer{
+    display: flex;
+    justify-content: center;
+}
+
+.puntaje{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.container{
+    background-color: #cccccc38;
+    backdrop-filter: blur(1vh);
+    -webkit-backdrop-filter: blur(1vh);
+    box-shadow: 0px 0px 3vh black;
+
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+h1{
+    text-align: center;
+    font-weight: 500;
+}
+
+.board{
+    width: 400px;
+    margin: 20px auto;
+}
+
+.buttons{
+    color: aquamarine;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button{
+    color: #fff;
+    background-color: #000;
+    border: none;
+    width: 120px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    background-color: #434343;
+}
+
+.move-history{
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    height: 100px;
+    width: 400px;
+    overflow-y: scroll;
+    background-color: #f2f2f2;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('Imagen para chess.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 2; /* Asegura que el contenido esté por encima de la imagen de fondo */
+}
+
+.board {
+    position: relative;
+    z-index: 3; /* Asegura que el tablero esté por encima de otros elementos */
+}
+

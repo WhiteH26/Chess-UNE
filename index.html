@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/chessboard-1.0.0.min.css">
+    <title>Chess Game UNE</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 style="font-family: Roboto Slab; font-weight: bold; color: rgb(0, 0, 0);">Chess <span style="font-family: Roboto Slab; color: #b8285c; font-weight: bold;">UNE</span></h1>
+        <div class="board" id="board"></div>
+        <div class="info-panel">
+            <div class="timer">
+                <span>Tiempo Jugado: </span>
+                <span style="white-space: pre;" id="time">00:00:00</span>
+            </div>
+            <div class="puntaje">
+                <span>Derrotas: </span>
+                <span id="victories">0</span>
+                <span style="white-space: pre;"> | Victorias: </span>
+                <span id="defeats">0</span>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="button PlayAgain">
+                <img src="img/restart.png" height="100%" alt="">
+                <p class="text">PlayAgain</p>
+            </button>
+            <button class="button flip-board">
+                <img src="img/flip.png" height="100%" alt="">
+                <p class="text">FlipColor</p>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/chessboard-1.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
