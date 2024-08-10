@@ -46,18 +46,20 @@
 }
 
 body {
-    height: 110vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: black;
+    background-image: url('Imagen para chess.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-.timer {
-    display: flex;
-    justify-content: center;
-}
-
+.timer,
 .puntaje {
     display: flex;
     justify-content: center;
@@ -68,9 +70,13 @@ body {
     backdrop-filter: blur(1vh);
     -webkit-backdrop-filter: blur(1vh);
     box-shadow: 0px 0px 3vh black;
-
     padding: 2rem;
     border-radius: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 2;
 }
 
 h1 {
@@ -81,6 +87,8 @@ h1 {
 .board {
     width: 400px;
     margin: 20px auto;
+    position: relative;
+    z-index: 3;
 }
 
 .buttons {
@@ -118,90 +126,35 @@ button:hover {
     background-color: #f2f2f2;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url('Imagen para chess.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
-}
-
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    z-index: 2; /* Asegura que el contenido esté por encima de la imagen de fondo */
-}
-
-.board {
-    position: relative;
-    z-index: 3; /* Asegura que el tablero esté por encima de otros elementos */
-}
-
-/* Media queries para pantallas pequeñas */
-
+/* Media queries para ajustar el tablero y la imagen de fondo en pantallas pequeñas */
 @media (max-width: 768px) {
-    /* Ajustes para tablets */
-    .container {
-        padding: 1.5rem;
-    }
-
-    .board {
-        width: 100%; /* Ajusta el tablero para usar todo el ancho disponible */
-    }
-
-    .move-history {
-        width: 100%; /* Ajusta el historial de movimientos */
-        height: 80px; /* Reduce la altura del historial de movimientos */
-    }
-
-    .buttons {
-        flex-direction: column; /* Coloca los botones uno debajo del otro */
-        gap: 5px;
-    }
-
-    button {
-        width: 100%; /* Ajusta el ancho de los botones */
-        font-size: 0.8rem; /* Reduce el tamaño de la fuente de los botones */
-    }
-}
-
-@media (max-width: 480px) {
-    /* Ajustes para celulares */
-    body {
-        height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
-    }
-
     .container {
         padding: 1rem;
     }
 
     .board {
-        width: 100%; /* Ajusta el tablero para usar todo el ancho disponible */
-        margin: 10px auto; /* Reduce el margen alrededor del tablero */
+        width: 300px; /* Reducir el tamaño del tablero en tablets */
     }
 
     .move-history {
-        width: 100%; /* Ajusta el historial de movimientos */
-        height: 60px; /* Reduce la altura del historial de movimientos */
-        font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+        width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
     }
 
-    .buttons {
-        flex-direction: column; /* Coloca los botones uno debajo del otro */
-        gap: 5px;
+    .board {
+        width: 100%; /* El tablero ocupa todo el ancho disponible en móviles */
     }
 
-    button {
-        width: 100%; /* Ajusta el ancho de los botones */
-        height: 35px; /* Reduce la altura de los botones */
-        font-size: 0.7rem; /* Reduce el tamaño de la fuente de los botones */
+    .move-history {
+        width: 100%; /* Ajustar el historial de movimientos al ancho del móvil */
     }
 
-    h1 {
-        font-size: 1.2rem; /* Reduce el tamaño de la fuente del título */
+    body {
+        background-size: contain; /* Ajustar la imagen de fondo a la pantalla */
     }
 }
