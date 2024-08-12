@@ -41,7 +41,7 @@ class Jugador extends GameEntity {
         this.color = color;
         this.victories = 0;
         this.defeats = 0;
-        this.moveSpeed = color === 'w' ? 200 : 2000; // Velocidades predeterminadas
+        this.moveSpeed = 200; // Velocidad predeterminada
     }
 
     setMoveSpeed(speed) {
@@ -105,9 +105,9 @@ class ChessBoardManager extends GameEntity {
             onDragStart: this.onDragStart.bind(this),
             onDrop: this.onDrop.bind(this),
             onSnapEnd: this.onSnapEnd.bind(this),
-            moveSpeed: this.JugadorBlanco.moveSpeed, // Velocidad de movimiento de las piezas blancas
-            snapBackSpeed: this.JugadorBlanco.moveSpeed, // Velocidad de retroceso para las blancas
-            snapSpeed: this.JugadorBlanco.moveSpeed, // Velocidad de ajuste para las blancas
+            moveSpeed: this.JugadorBlanco.moveSpeed,
+            snapBackSpeed: this.JugadorBlanco.moveSpeed,
+            snapSpeed: this.JugadorBlanco.moveSpeed,
         };
         this.board = Chessboard('board', boardConfig);
     }
@@ -149,8 +149,6 @@ class ChessBoardManager extends GameEntity {
             this.JugadorNegro.recordDefeat();
             alert("JAQUE MATE! ¡TÚ PIERDES!");
             this.timer.stop();
-        } else {
-            setTimeout(() => this.makeRandomMove(), this.JugadorNegro.moveSpeed);
         }
     }
 
@@ -162,32 +160,6 @@ class ChessBoardManager extends GameEntity {
         this.board.moveSpeed = this.JugadorBlanco.moveSpeed;
         this.board.snapBackSpeed = this.JugadorBlanco.moveSpeed;
         this.board.snapSpeed = this.JugadorBlanco.moveSpeed;
-    }
-
-    makeRandomMove() {
-        const possibleMoves = this.game.moves();
-
-        if (this.game.game_over()) {
-            if (this.game.in_checkmate()) {
-                this.JugadorBlanco.recordVictory();
-                alert("JAQUE MATE! ¡TÚ GANAS!");
-            } else {
-                alert("¡Empate!");
-            }
-            this.timer.stop();
-        } else {
-            const randomIdx = Math.floor(Math.random() * possibleMoves.length);
-            const move = possibleMoves[randomIdx];
-            this.game.move(move);
-            this.board.position(this.game.fen(), true);
-            this.moveHistory.recordMove(move);
-
-            if (this.game.in_checkmate()) {
-                this.JugadorBlanco.recordVictory();
-                alert("JAQUE MATE! ¡TÚ GANAS!");
-                this.timer.stop();
-            }
-        }
     }
 
     resetGame() {
