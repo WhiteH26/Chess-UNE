@@ -54,7 +54,7 @@ class Jugador extends GameEntity {
 
     recordVictory() {
         this.victorias++;
-        document.getElementById('victorias').textContent = this.victorias.toString();
+        document.getElementById('victorias').textContent = this.victorias.toString();//convierte el valor a tipo string
     }
 
     recordDefeat() {
